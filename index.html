@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#2F5D4F" />
+  <title>GIADA · Comitato di Quartiere</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand-block">
+        <img src="assets/logo-giada.jpg" alt="Logo Comitato di Quartiere GIADA" class="brand-logo" />
+        <div class="brand-copy"><strong>GIADA</strong><span>Comitato di Quartiere · Matera</span></div>
+      </div>
+      <nav class="side-nav" aria-label="Navigazione principale">
+        <button class="nav-item active" data-view="dashboard"><span>⌂</span> Dashboard</button>
+        <button class="nav-item" data-view="perche"><span>◌</span> Perché GIADA</button>
+        <button class="nav-item" data-view="progetti"><span>◫</span> Progetti & raccolte</button>
+        <button class="nav-item" data-view="segnalazioni"><span>⚑</span> Segnalazioni</button>
+        <button class="nav-item" data-view="eventi"><span>◉</span> Eventi</button>
+        <button class="nav-item" data-view="community"><span>◎</span> Comunità</button>
+        <button class="nav-item" data-view="dati"><span>▥</span> GIADA in numeri</button>
+        <button class="nav-item" data-view="trasparenza"><span>✓</span> Trasparenza</button>
+      </nav>
+      <div class="sidebar-card">
+        <small>PARTECIPA A GIADA</small>
+        <strong>Scegli come esserci</strong>
+        <p>Segui il quartiere, proponi idee, dai una mano, sostieni un progetto oppure diventa socio.</p>
+        <button class="btn btn-light" data-action="participate">Scopri come partecipare</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-btn menu-btn" id="menuBtn" aria-label="Apri menu">☰</button>
+        <div class="top-title"><strong id="pageTitle">Dashboard</strong><span>GIADA · progetti, persone e vita del quartiere</span></div>
+        <div class="top-actions">
+          <button class="icon-btn" data-action="search" aria-label="Cerca">⌕</button>
+          <button class="avatar" data-action="profile">RV</button>
+        </div>
+      </header>
+
+      <div class="content">
+        <!-- DASHBOARD -->
+        <section class="view active" id="view-dashboard">
+          <section class="home-brand" aria-label="Identità del Comitato GIADA">
+            <img src="assets/logo-giada-horizontal.jpg" alt="GIADA Comitato di Quartiere Matera" class="home-logo home-logo-desktop" />
+            <img src="assets/logo-giada-badge.jpg" alt="GIADA Comitato di Quartiere Matera" class="home-logo home-logo-mobile" />
+          </section>
+
+          <div class="why-banner">
+            <div>
+              <span class="kicker">PERCHÉ NASCE GIADA</span>
+              <h2>Un quartiere può fare molto, quando le persone riescono a conoscersi e a organizzarsi.</h2>
+              <p>GIADA riunisce la cittadinanza attiva di Via Caduti di Nassiriya: fa ciò che può direttamente, chiede alle istituzioni ciò che compete loro e rende trasparenti progetti, risorse e risultati.</p>
+            </div>
+            <button class="btn btn-outline" data-view="perche">Scopri il Comitato →</button>
+          </div>
+
+          <div class="hero">
+            <div>
+              <p class="eyebrow">GIADA OGGI</p>
+              <h1>Tutto quello che sta succedendo a GIADA.</h1>
+              <p>Progetti, idee, segnalazioni, raccolte fondi, iniziative e persone che mettono qualcosa a disposizione del quartiere.</p>
+            </div>
+            <div class="hero-actions">
+              <button class="btn btn-primary" data-action="report">+ Segnala qualcosa</button>
+              <button class="btn btn-outline" data-action="participate">Partecipa come vuoi</button>
+            </div>
+          </div>
+
+          <div class="metric-grid metric-grid-rich">
+            <article class="metric-card"><span class="metric-label">Community GIADA</span><strong>84</strong><small>persone che seguono e partecipano</small></article>
+            <article class="metric-card"><span class="metric-label">Soci del Comitato</span><strong>27</strong><small>associati formalmente ammessi</small></article>
+            <article class="metric-card"><span class="metric-label">Sostenitori dei progetti</span><strong>137</strong><small>persone che hanno contribuito</small></article>
+            <article class="metric-card"><span class="metric-label">Fondi raccolti</span><strong>€ 11.560</strong><small>collegati a 4 progetti attivi</small></article>
+            <article class="metric-card"><span class="metric-label">Competenze censite</span><strong>31</strong><small>risorse del quartiere disponibili</small></article>
+            <article class="metric-card"><span class="metric-label">Persone disponibili</span><strong>18</strong><small>per attività e progetti</small></article>
+            <article class="metric-card"><span class="metric-label">Progetti attivi</span><strong>4</strong><small>con avanzamento pubblico</small></article>
+            <article class="metric-card"><span class="metric-label">Segnalazioni aperte</span><strong>12</strong><small>8 già risolte</small></article>
+          </div>
+
+          <div class="dashboard-grid">
+            <section class="panel wide">
+              <div class="panel-head"><div><span class="kicker">CROWDFUNDING CIVICO</span><h2>Progetti da rendere possibili</h2></div><button class="text-btn" data-go="progetti">Vedi tutti →</button></div>
+              <div class="project-list compact" id="dashboardProjects"></div>
+            </section>
+
+            <aside class="panel">
+              <div class="panel-head"><div><span class="kicker">AGENDA</span><h2>Prossimi eventi</h2></div></div>
+              <div class="event-mini"><time><b>27</b><span>SET</span></time><div><strong>Assemblea aperta</strong><span>Parco GIADA · 18:30</span></div></div>
+              <div class="event-mini"><time><b>04</b><span>OTT</span></time><div><strong>Puliamo insieme il parco</strong><span>Ritrovo · 09:30</span></div></div>
+              <div class="event-mini"><time><b>18</b><span>OTT</span></time><div><strong>Festa di quartiere</strong><span>Piazzetta · 17:00</span></div></div>
+              <button class="btn btn-soft full" data-go="eventi">Calendario completo</button>
+            </aside>
+
+            <section class="panel wide">
+              <div class="panel-head"><div><span class="kicker">A CHE PUNTO SIAMO</span><h2>Progetti e attività in corso</h2></div><span class="pill">7 attive</span></div>
+              <div class="timeline">
+                <div class="tl-item done"><span></span><div><b>Costituzione Comitato</b><small>Completato · Settembre 2026</small></div></div>
+                <div class="tl-item doing"><span></span><div><b>Raccolta dati civici e residenti</b><small>In corso · 65%</small><div class="mini-progress"><i style="width:65%"></i></div></div></div>
+                <div class="tl-item"><span></span><div><b>Progetto di rigenerazione del parco</b><small>Preventivi e confronto con residenti</small></div></div>
+                <div class="tl-item"><span></span><div><b>Richiesta tavolo tecnico al Comune</b><small>Terreno, drenaggi, viabilità e manutenzione</small></div></div>
+              </div>
+            </section>
+
+            <aside class="panel community-spot">
+              <span class="kicker">RETE DI VICINATO</span>
+              <h2>Vicini che aiutano vicini</h2>
+              <div class="quick-links">
+                <button data-action="communityTopic" data-topic="Organizzazione tra famiglie">🚗 <span><b>Organizzazione tra famiglie</b><small>7 famiglie disponibili</small></span></button>
+                <button data-action="communityTopic" data-topic="Compiti insieme">📚 <span><b>Compiti insieme</b><small>Martedì e giovedì</small></span></button>
+                <button data-action="communityTopic" data-topic="Prestito attrezzi">🧰 <span><b>Prestito attrezzi</b><small>12 oggetti disponibili</small></span></button>
+              </div>
+              <button class="btn btn-outline full" data-go="community">Entra nella Community</button>
+            </aside>
+          </div>
+        </section>
+
+
+        <!-- PERCHÉ GIADA -->
+        <section class="view" id="view-perche">
+          <div class="section-head"><div><p class="eyebrow">IL COMITATO</p><h1>Perché nasce GIADA</h1><p>Una comunità di prossimità non nasce perché tutti partecipano allo stesso modo, ma perché qualcuno comincia a mettere in connessione persone, bisogni e possibilità.</p></div><button class="btn btn-primary" data-action="participate">Partecipa come vuoi</button></div>
+          <div class="story-panel">
+            <p><strong>GIADA riunisce la cittadinanza attiva di Via Caduti di Nassiriya.</strong> Persone che scelgono liberamente di mettere idee, competenze o un po’ del proprio tempo a disposizione del luogo in cui abitano.</p>
+            <p>Nasce da una constatazione semplice: non sempre ciò che serve a un quartiere arriva nei tempi e nei modi che i cittadini si aspettano. Alcuni interventi spettano al Comune e continueremo a chiederli, seguirli e sollecitarli. Altre cose, invece, possiamo provare a costruirle anche noi: prenderci cura di uno spazio, finanziare un progetto, organizzare un’attività, creare occasioni per conoscersi.</p>
+            <p>Non chiediamo a tutti di partecipare nello stesso modo. C’è chi mette tempo, chi offre una competenza, chi sostiene un progetto, chi propone un’idea e chi semplicemente beneficia e rispetta ciò che viene realizzato. <strong>L’impegno di alcuni può migliorare la vita di tutti.</strong></p>
+            <p>Sappiamo anche che la fiducia non si chiede: si costruisce. Per questo vogliamo rendere visibili progetti, raccolte fondi, decisioni, spese e risultati.</p>
+            <p>Anche altri quartieri stanno riscoprendo forme di partecipazione di prossimità. GIADA vuole farlo con un approccio contemporaneo: meno distanza tra vicini, più occasioni per incontrarsi, più capacità di fare insieme e una voce più forte quando è necessario chiedere alle istituzioni di fare la loro parte.</p>
+            <blockquote>Non serve fare tutti. Serve che qualcuno inizi, che tutto sia trasparente e che il beneficio arrivi a tutti.</blockquote>
+          </div>
+        </section>
+
+        <!-- PROGETTI -->
+        <section class="view" id="view-progetti">
+          <div class="section-head"><div><p class="eyebrow">SOSTIENI GIADA</p><h1>Progetti da rendere possibili</h1><p>Ogni raccolta nasce da un obiettivo concreto. Puoi vedere quanto serve, quanto abbiamo raccolto, come verranno utilizzate le risorse e a che punto è il progetto.</p></div><button class="btn btn-primary" data-action="proposeProject">Proponi un progetto</button></div>
+          <div class="project-grid" id="projectGrid"></div>
+        </section>
+
+        <!-- SEGNALAZIONI -->
+        <section class="view" id="view-segnalazioni">
+          <div class="section-head"><div><p class="eyebrow">ASCOLTO DEL TERRITORIO</p><h1>Hai notato qualcosa che non va?</h1><p>Inviaci una foto, raccontaci il problema e indica dove si trova. Il Comitato verificherà la segnalazione, cercherà di capire come intervenire e, quando necessario, la porterà all’attenzione del Comune.</p></div><button class="btn btn-primary" data-action="report">+ Nuova segnalazione</button></div>
+          <div class="filters"><button class="chip active">Tutte</button><button class="chip">Ricevute / in verifica</button><button class="chip">Inoltrate al Comune</button><button class="chip">Risolte</button></div>
+          <div class="report-list" id="reportList"></div>
+        </section>
+
+        <!-- EVENTI -->
+        <section class="view" id="view-eventi">
+          <div class="section-head"><div><p class="eyebrow">STARE INSIEME</p><h1>Occasioni per incontrarsi</h1><p>Assemblee, feste, attività per bambini e ragazzi, giornate nel parco, sport e laboratori. Partecipare non significa impegnarsi sempre: a volte basta esserci.</p></div><button class="btn btn-primary">Proponi evento</button></div>
+          <div class="event-grid">
+            <article class="event-card"><div class="event-visual green"><span>27 SET</span></div><div><span class="pill">Partecipazione</span><h3>Assemblea aperta GIADA</h3><p>Presentiamo il Comitato, raccogliamo priorità e formiamo i primi gruppi di lavoro.</p><small>18:30 · Parco GIADA</small></div></article>
+            <article class="event-card"><div class="event-visual terra"><span>04 OTT</span></div><div><span class="pill">Cura del quartiere</span><h3>Puliamo insieme il parco</h3><p>Una mattina di cura condivisa del verde e degli spazi comuni.</p><small>09:30 · Ingresso parco</small></div></article>
+            <article class="event-card"><div class="event-visual beige"><span>18 OTT</span></div><div><span class="pill">Comunità</span><h3>Prima Festa di Quartiere</h3><p>Musica, attività per bambini, tavoli di vicinato e presentazione dei progetti.</p><small>17:00 · Piazzetta</small></div></article>
+          </div>
+        </section>
+
+        <!-- COMMUNITY -->
+        <section class="view" id="view-community">
+          <div class="section-head"><div><p class="eyebrow">RETE DI VICINATO</p><h1>La rete di vicinato</h1><p>A pochi metri da casa può esserci qualcuno che può darci una mano — e qualcuno a cui possiamo darla noi. Qui mettiamo in contatto bisogni semplici, disponibilità e competenze del quartiere.</p></div><button class="btn btn-primary" data-action="newCommunity">+ Nuova richiesta</button></div>
+          <div class="community-grid">
+            <article class="community-card"><div class="community-icon">🚗</div><h3>Organizzazione tra famiglie</h3><p>Uno spazio protetto per coordinare esigenze pratiche, spostamenti e disponibilità tra genitori e famiglie verificate.</p><span>7 famiglie attive</span></article>
+            <article class="community-card"><div class="community-icon">📚</div><h3>Compiti insieme</h3><p>Piccoli gruppi di studio tra bambini e disponibilità di adulti per materie specifiche.</p><span>9 famiglie interessate</span></article>
+            <article class="community-card"><div class="community-icon">🧰</div><h3>Prestito e scambio</h3><p>Trapano, scala, idropulitrice, attrezzi da giardino: condividiamo ciò che usiamo poco.</p><span>12 oggetti disponibili</span></article>
+            <article class="community-card"><div class="community-icon">🐾</div><h3>Animali e piccole necessità</h3><p>Aiuto reciproco durante weekend e brevi assenze, tra persone verificate.</p><span>5 disponibilità</span></article>
+            <article class="community-card competence-card"><div class="community-icon">🧩</div><h3>Competenze GIADA</h3><p>Scopri quali capacità, esperienze e professionalità esistono già a pochi metri da casa.</p><span>31 competenze censite</span><button class="text-btn" data-action="skills">Aggiungi la tua competenza →</button></article>
+          </div>
+          <div class="privacy-note"><b>Area protetta.</b> Per attività che riguardano minori, spostamenti e dati personali, informazioni sensibili e contatti sono visibili solo agli utenti autorizzati.</div>
+        </section>
+
+        <!-- DATI -->
+        <section class="view" id="view-dati">
+          <div class="section-head"><div><p class="eyebrow">OSSERVATORIO GIADA</p><h1>GIADA in numeri</h1><p>Il profilo del quartiere crescerà con i dati ufficiali su civici, residenti e servizi.</p></div><span class="pill">Dati in aggiornamento</span></div>
+          <div class="data-grid">
+            <article class="data-card placeholder"><span>Residenti</span><strong>—</strong><small>In attesa dato ufficiale</small></article>
+            <article class="data-card placeholder"><span>Nuclei familiari</span><strong>—</strong><small>In attesa dato ufficiale</small></article>
+            <article class="data-card"><span>Via principale</span><strong>1</strong><small>Via Caduti di Nassiriya</small></article>
+            <article class="data-card"><span>Sezione elettorale</span><strong>46</strong><small>proxy amministrativo</small></article>
+          </div>
+          <div class="panel"><div class="panel-head"><div><span class="kicker">DATA ROOM</span><h2>Dataset previsti</h2></div></div><div class="dataset-list"><div><b>Civici e numerazione</b><span>In acquisizione</span></div><div><b>Residenti per fasce d’età</b><span>Da richiedere</span></div><div><b>Servizi, fermate e dotazioni</b><span>In ricognizione</span></div><div><b>Segnalazioni geolocalizzate</b><span>Attivo</span></div></div></div>
+        </section>
+
+        <!-- TRASPARENZA -->
+        <section class="view" id="view-trasparenza">
+          <div class="section-head"><div><p class="eyebrow">TRASPARENZA</p><h1>Come usiamo le risorse</h1><p>Ogni euro raccolto deve poter essere seguito. Qui pubblichiamo fondi ricevuti, destinazione, spese, documenti, stato dei progetti e rendicontazione finale.</p></div></div>
+          <div class="transparency-grid">
+            <article class="trans-card"><span>Raccolto 2026</span><strong>€ 11.560</strong><small>liberalità finalizzate + donazioni libere</small></article>
+            <article class="trans-card"><span>Speso</span><strong>€ 1.820</strong><small>documentate e pubblicate</small></article>
+            <article class="trans-card"><span>Impegnato sui progetti</span><strong>€ 9.240</strong><small>assegnate ai progetti attivi</small></article>
+            <article class="trans-card"><span>Residuo libero</span><strong>€ 500</strong><small>donazioni senza vincolo</small></article>
+          </div>
+          <div class="panel"><div class="panel-head"><div><span class="kicker">DOCUMENTI</span><h2>Archivio pubblico</h2></div></div><div class="doc-list"><button>📄 Statuto del Comitato <span>PDF</span></button><button>📄 Verbale assemblea costitutiva <span>PDF</span></button><button>📊 Rendiconto raccolte fondi <span>XLSX</span></button><button>📄 Informativa privacy e regolamento <span>PDF</span></button></div></div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <nav class="mobile-nav" aria-label="Navigazione mobile">
+    <button class="active" data-view="dashboard"><span>⌂</span><small>Home</small></button>
+    <button data-view="progetti"><span>◫</span><small>Progetti</small></button>
+    <button data-action="report" class="mobile-primary"><span>＋</span><small>Segnala</small></button>
+    <button data-view="community"><span>◎</span><small>Community</small></button>
+    <button data-view="trasparenza"><span>✓</span><small>Trasparenza</small></button>
+  </nav>
+
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose">×</button>
+      <div id="modalContent"></div>
+    </section>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
